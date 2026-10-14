@@ -1,0 +1,1142 @@
+/* ==========================================================================
+   PERSONA 5 THEME PORTFOLIO - MAIN STYLESHEET
+   Author: Supphakan Chuadsri (Creative Media Designer)
+   Theme: Game Persona 5 / Phantom Thieves of Hearts Aesthetic
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Google Fonts & CSS Custom Properties (Variables)
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:ital,wght@0,300;0,400;0,600;0,800;0,900;1,700;1,900&family=Prompt:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+  --p5-red: #e60012;
+  --p5-red-dark: #b8000e;
+  --p5-red-glow: rgba(230, 0, 18, 0.4);
+  --p5-black: #0c0c0e;
+  --p5-black-card: #151518;
+  --p5-black-card-light: #202025;
+  --p5-white: #ffffff;
+  --p5-yellow: #ffde00;
+  --p5-gray: #a0a0a5;
+  --p5-gray-dark: #2a2a30;
+  --font-p5-heading: 'Bebas Neue', 'Kanit', sans-serif;
+  --font-thai: 'Kanit', sans-serif;
+  --font-body: 'Prompt', 'Kanit', sans-serif;
+  --transition-fast: 0.2s cubic-bezier(0.2, 0, 0, 1);
+  --transition-bounce: 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* --------------------------------------------------------------------------
+   2. Global Reset & Base Styling
+   -------------------------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--p5-black);
+  color: var(--p5-white);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  line-height: 1.6;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(230, 0, 18, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(230, 0, 18, 0.05) 0%, transparent 40%),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
+}
+
+/* Halftone dots texture effect */
+.halftone-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.04;
+  background-image: radial-gradient(#ffffff 1.5px, transparent 1.5px);
+  background-size: 12px 12px;
+}
+
+/* Red speedslash decorative strip in background */
+.p5-slash-bg {
+  position: fixed;
+  top: -20%;
+  right: -10%;
+  width: 35vw;
+  height: 140vh;
+  background: linear-gradient(135deg, rgba(230, 0, 18, 0.12) 0%, rgba(230, 0, 18, 0.02) 100%);
+  transform: rotate(-15deg);
+  pointer-events: none;
+  z-index: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-fast);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Typography Overrides */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-thai);
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.p5-display-title {
+  font-family: var(--font-p5-heading);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.p5-subtitle {
+  font-family: var(--font-thai);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--p5-red);
+  letter-spacing: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   3. Persona 5 Specific Design Elements
+   -------------------------------------------------------------------------- */
+
+/* Angled Badge / Stamp */
+.p5-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  background-color: var(--p5-red);
+  color: var(--p5-white);
+  font-family: var(--font-thai);
+  font-weight: 800;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  transform: skewX(-12deg);
+  box-shadow: 4px 4px 0px #000;
+  border: 1px solid #000;
+}
+.p5-badge span {
+  display: inline-block;
+  transform: skewX(12deg);
+}
+
+.p5-badge-yellow {
+  background-color: var(--p5-yellow);
+  color: var(--p5-black);
+}
+
+.p5-badge-white {
+  background-color: var(--p5-white);
+  color: var(--p5-black);
+}
+
+/* P5 Slanted Title Ribbon */
+.p5-ribbon-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--p5-black);
+  border: 3px solid var(--p5-red);
+  padding: 8px 24px;
+  transform: skewX(-10deg);
+  box-shadow: 8px 8px 0px var(--p5-red);
+  margin-bottom: 25px;
+}
+.p5-ribbon-title .inner {
+  transform: skewX(10deg);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* P5 Cutout / Angled Card Container */
+.p5-card {
+  background: var(--p5-black-card);
+  border: 2px solid var(--p5-gray-dark);
+  position: relative;
+  transition: all var(--transition-bounce);
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.8);
+}
+.p5-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background-color: var(--p5-red);
+  transition: var(--transition-fast);
+}
+.p5-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  border-color: var(--p5-red);
+  box-shadow: 10px 10px 0px var(--p5-red);
+}
+
+/* Persona 5 Dynamic Button */
+.btn-p5 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 28px;
+  font-family: var(--font-thai);
+  font-weight: 800;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  color: var(--p5-white);
+  background-color: var(--p5-red);
+  border: 2px solid #000;
+  transform: skewX(-12deg);
+  box-shadow: 5px 5px 0px #000;
+  cursor: pointer;
+  transition: all var(--transition-bounce);
+  position: relative;
+  overflow: hidden;
+}
+.btn-p5 > * {
+  transform: skewX(12deg);
+}
+.btn-p5:hover {
+  background-color: var(--p5-white);
+  color: var(--p5-black);
+  box-shadow: 7px 7px 0px var(--p5-yellow);
+  transform: skewX(-12deg) translate(-2px, -2px);
+}
+.btn-p5:active {
+  transform: skewX(-12deg) translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000;
+}
+
+.btn-p5-outline {
+  background-color: transparent;
+  color: var(--p5-white);
+  border: 2px solid var(--p5-red);
+  box-shadow: 5px 5px 0px var(--p5-red);
+}
+.btn-p5-outline:hover {
+  background-color: var(--p5-red);
+  color: var(--p5-white);
+  box-shadow: 7px 7px 0px #fff;
+}
+
+/* Star bullet */
+.p5-star {
+  color: var(--p5-yellow);
+  font-size: 1.1em;
+  margin-right: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   4. Navbar Navigation (Persona 5 Slanted Nav)
+   -------------------------------------------------------------------------- */
+.p5-navbar {
+  background: rgba(12, 12, 14, 0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 3px solid var(--p5-red);
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1050;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+}
+
+.navbar-brand-p5 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.brand-mask-logo {
+  width: 44px;
+  height: 28px;
+  object-fit: contain;
+  transition: transform var(--transition-bounce);
+}
+.navbar-brand-p5:hover .brand-mask-logo {
+  transform: rotate(-10deg) scale(1.15);
+}
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+.brand-name {
+  font-family: var(--font-p5-heading);
+  font-size: 1.85rem;
+  letter-spacing: 2px;
+  line-height: 1;
+  color: var(--p5-white);
+}
+.brand-sub {
+  font-family: var(--font-thai);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--p5-red);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* Slanted Menu Links */
+.p5-nav-item {
+  position: relative;
+  margin: 0 4px;
+}
+.p5-nav-link {
+  font-family: var(--font-thai);
+  font-weight: 800;
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: var(--p5-white) !important;
+  padding: 8px 18px !important;
+  transform: skewX(-10deg);
+  transition: all var(--transition-fast);
+  position: relative;
+  display: inline-block;
+  border: 1px solid transparent;
+}
+.p5-nav-link span {
+  display: inline-block;
+  transform: skewX(10deg);
+}
+.p5-nav-link:hover {
+  background-color: var(--p5-red);
+  color: var(--p5-white) !important;
+  box-shadow: 4px 4px 0px #000;
+  border-color: #000;
+}
+.p5-nav-link.active {
+  background-color: var(--p5-white);
+  color: var(--p5-black) !important;
+  box-shadow: 4px 4px 0px var(--p5-red);
+  border-color: #000;
+}
+.p5-nav-link.active::after {
+  content: '★';
+  position: absolute;
+  top: -8px;
+  right: -4px;
+  font-size: 12px;
+  color: var(--p5-yellow);
+}
+
+/* Sound Effect Toggler */
+.sfx-toggle-btn {
+  background: var(--p5-black-card);
+  border: 1px solid var(--p5-red);
+  color: var(--p5-yellow);
+  font-size: 0.85rem;
+  font-weight: bold;
+  padding: 6px 14px;
+  transform: skewX(-10deg);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  margin-left: 10px;
+}
+.sfx-toggle-btn span {
+  transform: skewX(10deg);
+  display: inline-block;
+}
+.sfx-toggle-btn:hover {
+  background: var(--p5-red);
+  color: #fff;
+}
+
+/* Mobile Hamburger Menu */
+.p5-toggler {
+  border: 2px solid var(--p5-red);
+  background: var(--p5-black);
+  color: var(--p5-white);
+  padding: 8px 12px;
+  transform: skewX(-8deg);
+}
+.p5-toggler:focus {
+  box-shadow: 0 0 0 3px var(--p5-red-glow);
+}
+
+/* --------------------------------------------------------------------------
+   5. Hero Section (Home Page)
+   -------------------------------------------------------------------------- */
+.hero-section {
+  padding: 70px 0 90px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-calling-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--p5-red);
+  color: #fff;
+  font-family: var(--font-p5-heading);
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  padding: 6px 20px;
+  transform: skewX(-12deg);
+  box-shadow: 5px 5px 0px #000;
+  margin-bottom: 20px;
+}
+.hero-calling-card-badge span {
+  transform: skewX(12deg);
+}
+
+.hero-name-hero {
+  font-family: var(--font-p5-heading);
+  font-size: clamp(3.5rem, 8vw, 6.2rem);
+  line-height: 0.9;
+  letter-spacing: 2px;
+  text-shadow: 4px 4px 0px var(--p5-red);
+  margin-bottom: 12px;
+}
+
+.hero-role-badge {
+  background: #fff;
+  color: #000;
+  padding: 6px 18px;
+  font-weight: 900;
+  font-size: 1.15rem;
+  display: inline-block;
+  transform: skewX(-10deg);
+  box-shadow: 4px 4px 0px var(--p5-red);
+  margin-bottom: 24px;
+}
+.hero-role-badge span {
+  transform: skewX(10deg);
+  display: inline-block;
+}
+
+.hero-bio-lead {
+  font-size: 1.15rem;
+  color: #d8d8de;
+  max-width: 580px;
+  margin-bottom: 30px;
+  line-height: 1.8;
+}
+
+/* Persona 5 Profile Photo Frame */
+.p5-avatar-wrapper {
+  position: relative;
+  max-width: 420px;
+  margin: 0 auto;
+}
+.p5-avatar-frame {
+  position: relative;
+  background: var(--p5-black);
+  border: 5px solid #fff;
+  box-shadow: 15px 15px 0px var(--p5-red), 20px 20px 0px #000;
+  transform: rotate(2deg);
+  overflow: hidden;
+  transition: transform var(--transition-bounce);
+}
+.p5-avatar-frame:hover {
+  transform: rotate(-1deg) scale(1.02);
+}
+.p5-avatar-frame img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  object-position: center top;
+  filter: contrast(1.05) saturate(1.1);
+  transition: transform 0.4s ease;
+}
+.p5-avatar-frame:hover img {
+  transform: scale(1.05);
+}
+
+.p5-avatar-badge-bottom {
+  position: absolute;
+  bottom: -15px;
+  left: 20px;
+  background: var(--p5-yellow);
+  color: #000;
+  font-family: var(--font-thai);
+  font-weight: 900;
+  font-size: 1rem;
+  padding: 8px 20px;
+  transform: skewX(-12deg) rotate(-4deg);
+  box-shadow: 4px 4px 0px #000;
+  z-index: 2;
+}
+.p5-avatar-badge-bottom span {
+  transform: skewX(12deg);
+  display: inline-block;
+}
+
+/* Persona 5 HUD / Stats Widget */
+.p5-hud-container {
+  background: var(--p5-black-card);
+  border: 3px solid var(--p5-red);
+  padding: 24px;
+  position: relative;
+  box-shadow: 8px 8px 0px #000;
+  transform: skewX(-4deg);
+}
+.p5-hud-inner {
+  transform: skewX(4deg);
+}
+.p5-hud-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px dashed var(--p5-gray-dark);
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+}
+.p5-stat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+.p5-stat-label {
+  color: var(--p5-gray);
+  font-weight: 600;
+}
+.p5-stat-val {
+  font-weight: 800;
+  color: #fff;
+}
+.p5-meter {
+  height: 10px;
+  background: #25252a;
+  border: 1px solid #444;
+  position: relative;
+  overflow: hidden;
+  margin-top: 4px;
+}
+.p5-meter-fill-hp {
+  height: 100%;
+  width: 95%;
+  background: linear-gradient(90deg, #ff4d4d, #e60012);
+}
+.p5-meter-fill-sp {
+  height: 100%;
+  width: 88%;
+  background: linear-gradient(90deg, #ffd700, #ff9900);
+}
+
+/* --------------------------------------------------------------------------
+   6. Education Page Styles (School Life / Arc Progression)
+   -------------------------------------------------------------------------- */
+.education-section {
+  padding: 50px 0 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.p5-timeline {
+  position: relative;
+  padding: 20px 0;
+}
+.p5-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 30px;
+  height: 100%;
+  width: 6px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--p5-red) 0px,
+    var(--p5-red) 15px,
+    var(--p5-black) 15px,
+    var(--p5-black) 25px
+  );
+}
+
+@media (min-width: 768px) {
+  .p5-timeline::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 45px;
+}
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 24px;
+  left: 17px;
+  width: 32px;
+  height: 32px;
+  background: var(--p5-yellow);
+  border: 4px solid var(--p5-black);
+  transform: rotate(45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 0 10px rgba(255, 222, 0, 0.6);
+}
+@media (min-width: 768px) {
+  .timeline-dot {
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+  }
+}
+
+.timeline-content {
+  margin-left: 65px;
+  background: var(--p5-black-card);
+  border: 3px solid #282830;
+  padding: 28px;
+  box-shadow: 8px 8px 0px rgba(0,0,0,0.8);
+  position: relative;
+  transition: all var(--transition-bounce);
+}
+@media (min-width: 768px) {
+  .timeline-item:nth-child(odd) .timeline-content {
+    margin-left: 0;
+    margin-right: calc(50% + 40px);
+  }
+  .timeline-item:nth-child(even) .timeline-content {
+    margin-left: calc(50% + 40px);
+  }
+}
+
+.timeline-content:hover {
+  border-color: var(--p5-red);
+  transform: translateY(-5px);
+  box-shadow: 10px 10px 0px var(--p5-red);
+}
+
+.timeline-year-badge {
+  display: inline-block;
+  background: var(--p5-red);
+  color: #fff;
+  font-family: var(--font-p5-heading);
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  padding: 4px 16px;
+  transform: skewX(-12deg);
+  margin-bottom: 12px;
+  box-shadow: 3px 3px 0px #000;
+}
+.timeline-year-badge span {
+  display: inline-block;
+  transform: skewX(12deg);
+}
+
+.timeline-school-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.timeline-level {
+  color: var(--p5-yellow);
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   7. Portfolio Page Styles (Creative Gallery)
+   -------------------------------------------------------------------------- */
+.portfolio-section {
+  padding: 50px 0 80px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Filter Buttons */
+.portfolio-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 40px;
+  justify-content: center;
+}
+
+.filter-btn {
+  background: var(--p5-black-card);
+  border: 2px solid var(--p5-gray-dark);
+  color: #fff;
+  font-family: var(--font-thai);
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 8px 22px;
+  transform: skewX(-10deg);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 4px 4px 0px #000;
+}
+.filter-btn span {
+  display: inline-block;
+  transform: skewX(10deg);
+}
+.filter-btn:hover {
+  background: var(--p5-red);
+  border-color: #000;
+  color: #fff;
+  transform: skewX(-10deg) translateY(-2px);
+  box-shadow: 6px 6px 0px #000;
+}
+.filter-btn.active {
+  background: var(--p5-white);
+  color: var(--p5-black);
+  border-color: var(--p5-red);
+  box-shadow: 6px 6px 0px var(--p5-red);
+}
+
+/* Portfolio Card */
+.portfolio-grid-item {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.portfolio-card {
+  background: var(--p5-black-card);
+  border: 3px solid #222228;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-bounce);
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.9);
+}
+.portfolio-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: var(--p5-red);
+  box-shadow: 10px 10px 0px var(--p5-red);
+}
+
+.portfolio-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 270px;
+  overflow: hidden;
+  background: #000;
+}
+.portfolio-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+.portfolio-card:hover .portfolio-img-wrap img {
+  transform: scale(1.08);
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(230, 0, 18, 0.85) 0%, rgba(0, 0, 0, 0.85) 100%);
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: opacity 0.3s ease;
+}
+.portfolio-card:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+.portfolio-info {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.portfolio-cat-badge {
+  display: inline-block;
+  background: var(--p5-red);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 3px 10px;
+  transform: skewX(-10deg);
+  margin-bottom: 8px;
+}
+.portfolio-cat-badge span {
+  transform: skewX(10deg);
+  display: inline-block;
+}
+
+.portfolio-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.portfolio-desc {
+  font-size: 0.9rem;
+  color: var(--p5-gray);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+/* Lightbox Modal P5 Theme */
+.modal-p5 .modal-content {
+  background: var(--p5-black);
+  border: 4px solid var(--p5-red);
+  border-radius: 0;
+  box-shadow: 12px 12px 0px #000;
+  color: #fff;
+}
+.modal-p5 .modal-header {
+  border-bottom: 2px solid var(--p5-red);
+  background: var(--p5-black-card);
+}
+.modal-p5 .btn-close {
+  filter: invert(1);
+}
+
+/* --------------------------------------------------------------------------
+   8. Activity Page Styles
+   -------------------------------------------------------------------------- */
+.activity-section {
+  padding: 50px 0 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.activity-card {
+  background: var(--p5-black-card);
+  border: 3px solid #282832;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-bounce);
+  box-shadow: 7px 7px 0px rgba(0, 0, 0, 0.9);
+}
+.activity-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--p5-red);
+  box-shadow: 12px 12px 0px var(--p5-red);
+}
+
+.activity-img-box {
+  width: 100%;
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+.activity-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.activity-card:hover .activity-img-box img {
+  transform: scale(1.06);
+}
+
+.activity-body {
+  padding: 24px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.activity-date-badge {
+  display: inline-block;
+  background: var(--p5-yellow);
+  color: #000;
+  font-weight: 800;
+  font-size: 0.8rem;
+  padding: 4px 12px;
+  transform: skewX(-10deg);
+  margin-bottom: 12px;
+}
+.activity-date-badge span {
+  transform: skewX(10deg);
+  display: inline-block;
+}
+
+.activity-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.activity-desc {
+  color: #c4c4cc;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.activity-tags {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.activity-tag {
+  background: #202026;
+  color: var(--p5-gray);
+  border: 1px solid #363640;
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   9. Contact Page Styles (Phantom Calling Card Theme)
+   -------------------------------------------------------------------------- */
+.contact-section {
+  padding: 50px 0 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.calling-card-box {
+  background: linear-gradient(135deg, #e60012 0%, #aa000c 100%);
+  color: #fff;
+  padding: 35px;
+  border: 4px solid #000;
+  box-shadow: 12px 12px 0px #000;
+  transform: rotate(-1deg);
+  margin-bottom: 30px;
+  position: relative;
+}
+.calling-card-box::before {
+  content: 'TAKE YOUR HEART';
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-family: var(--font-p5-heading);
+  font-size: 2.2rem;
+  color: rgba(255, 255, 255, 0.2);
+  letter-spacing: 2px;
+}
+
+.contact-method-card {
+  background: var(--p5-black-card);
+  border: 2px solid #2a2a34;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 18px;
+  transition: all var(--transition-bounce);
+  box-shadow: 5px 5px 0px #000;
+}
+.contact-method-card:hover {
+  transform: translateX(8px);
+  border-color: var(--p5-red);
+  box-shadow: 8px 8px 0px var(--p5-red);
+}
+.contact-icon-circle {
+  width: 52px;
+  height: 52px;
+  background: var(--p5-red);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  border: 2px solid #000;
+}
+.contact-method-card:hover .contact-icon-circle {
+  background: var(--p5-yellow);
+  color: #000;
+}
+
+/* Persona 5 Form Input Styles */
+.p5-form-control {
+  background: #111115;
+  border: 2px solid #33333d;
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 0;
+  font-family: var(--font-thai);
+  transition: all var(--transition-fast);
+}
+.p5-form-control:focus {
+  background: #181820;
+  border-color: var(--p5-red);
+  color: #fff;
+  box-shadow: 0 0 0 4px var(--p5-red-glow);
+  outline: none;
+}
+.p5-form-label {
+  font-weight: 700;
+  color: var(--p5-gray);
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+/* --------------------------------------------------------------------------
+   10. Footer (Consistent across all pages)
+   -------------------------------------------------------------------------- */
+.p5-footer {
+  background: #08080a;
+  border-top: 4px solid var(--p5-red);
+  padding: 55px 0 25px;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+}
+.p5-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(230, 0, 18, 0.02) 10px,
+    rgba(230, 0, 18, 0.02) 20px
+  );
+  pointer-events: none;
+}
+
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--p5-black-card);
+  border: 2px solid var(--p5-gray-dark);
+  color: #fff;
+  font-size: 1.2rem;
+  margin-right: 8px;
+  transform: skewX(-8deg);
+  transition: all var(--transition-fast);
+}
+.footer-social-link:hover {
+  background: var(--p5-red);
+  color: #fff;
+  border-color: #000;
+  transform: skewX(-8deg) translateY(-4px);
+  box-shadow: 4px 4px 0px #fff;
+}
+
+.footer-nav-list {
+  list-style: none;
+  padding: 0;
+}
+.footer-nav-list li {
+  margin-bottom: 10px;
+}
+.footer-nav-list a {
+  color: var(--p5-gray);
+  font-weight: 600;
+  transition: var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer-nav-list a:hover {
+  color: var(--p5-yellow);
+  transform: translateX(6px);
+}
+
+.footer-bottom {
+  border-top: 1px solid #1f1f26;
+  padding-top: 25px;
+  margin-top: 40px;
+  text-align: center;
+  color: #666670;
+  font-size: 0.85rem;
+}
+
+/* --------------------------------------------------------------------------
+   11. Animations & Sound UI Helper
+   -------------------------------------------------------------------------- */
+@keyframes p5Pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+
+.pulse-anim {
+  animation: p5Pulse 2.5s infinite ease-in-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: slideInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* --------------------------------------------------------------------------
+   12. Responsive Media Queries
+   -------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+  .hero-name-hero {
+    font-size: 3.5rem;
+  }
+  .p5-display-title {
+    font-size: 3.2rem;
+  }
+  .p5-avatar-frame {
+    margin-top: 40px;
+  }
+  .calling-card-box::before {
+    display: none;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .hero-name-hero {
+    font-size: 2.8rem;
+  }
+  .p5-display-title {
+    font-size: 2.6rem;
+  }
+  .btn-p5 {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .portfolio-filters {
+    gap: 8px;
+  }
+  .filter-btn {
+    font-size: 0.85rem;
+    padding: 6px 14px;
+  }
+}
+

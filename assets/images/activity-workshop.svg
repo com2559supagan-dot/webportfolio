@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGradW" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111111"/>
+      <stop offset="60%" stop-color="#1a1a1a"/>
+      <stop offset="100%" stop-color="#80000a"/>
+    </linearGradient>
+    <pattern id="gridW" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#e60012" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+    <filter id="shadowW">
+      <feDropShadow dx="6" dy="6" stdDeviation="0" flood-color="#000000" flood-opacity="0.9"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bgGradW)"/>
+  <rect width="800" height="500" fill="url(#gridW)"/>
+
+  <!-- P5 Slanted shapes -->
+  <polygon points="500,0 800,0 800,500 350,500" fill="#e60012" opacity="0.85"/>
+  <polygon points="540,0 580,0 430,500 390,500" fill="#ffffff" opacity="0.9"/>
+  <polygon points="0,380 800,440 800,500 0,500" fill="#000000"/>
+
+  <!-- Creative Icons / Tablet / Pen Graphic -->
+  <g transform="translate(480, 220) rotate(-8)" filter="url(#shadowW)">
+    <!-- Digital Tablet -->
+    <rect x="-140" y="-100" width="280" height="190" rx="14" fill="#0d0d0d" stroke="#ffffff" stroke-width="4"/>
+    <rect x="-120" y="-80" width="240" height="150" fill="#ffffff"/>
+    <!-- Screen artwork -->
+    <path d="M -120,40 Q -60,-40 0,10 T 120,-30 L 120,70 L -120,70 Z" fill="#e60012"/>
+    <circle cx="-50" cy="-20" r="24" fill="#f7e018"/>
+    <!-- Stylus Pen -->
+    <g transform="translate(90, 40) rotate(-45)">
+      <rect x="-8" y="-70" width="16" height="120" rx="4" fill="#111111" stroke="#f7e018" stroke-width="2"/>
+      <polygon points="-8,50 8,50 0,75" fill="#f7e018"/>
+    </g>
+  </g>
+
+  <!-- Star accents -->
+  <polygon points="100,120 106,132 120,132 109,140 113,153 100,145 87,153 91,140 80,132 94,132" fill="#f7e018"/>
+  <polygon points="180,60 184,69 194,69 186,75 189,84 180,78 171,84 174,75 166,69 176,69" fill="#ffffff"/>
+
+  <!-- P5 Slanted Title Banners -->
+  <g transform="translate(60, 200) skewX(-12)">
+    <rect x="0" y="0" width="280" height="42" fill="#f7e018" stroke="#000000" stroke-width="3"/>
+    <text x="15" y="30" font-family="'Impact', 'Arial Black', sans-serif" font-size="22" fill="#000000" letter-spacing="1">CREATIVE MEDIA</text>
+  </g>
+
+  <g transform="translate(50, 250) skewX(-12)">
+    <rect x="0" y="0" width="340" height="48" fill="#ffffff" stroke="#000000" stroke-width="3"/>
+    <text x="20" y="34" font-family="'Impact', 'Arial Black', sans-serif" font-size="26" fill="#000000" font-weight="900" letter-spacing="2">DESIGN WORKSHOP</text>
+  </g>
+
+  <g transform="translate(70, 310) skewX(-12)">
+    <rect x="0" y="0" width="310" height="38" fill="#e60012" stroke="#ffffff" stroke-width="2"/>
+    <text x="15" y="26" font-family="'Impact', 'Arial Black', sans-serif" font-size="18" fill="#ffffff" letter-spacing="1">SKILL LEVEL UP ★ 2024</text>
+  </g>
+
+  <!-- Top badge -->
+  <g transform="translate(60, 50) rotate(-4)">
+    <rect x="0" y="0" width="200" height="32" fill="#000000" stroke="#e60012" stroke-width="2"/>
+    <text x="15" y="22" font-family="'Impact', 'Arial Black', sans-serif" font-size="14" fill="#ffffff" letter-spacing="1">★ WORKSHOP & SEMINAR</text>
+  </g>
+</svg>
+

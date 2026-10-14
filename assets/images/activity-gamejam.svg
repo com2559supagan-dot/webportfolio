@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGradG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050505"/>
+      <stop offset="50%" stop-color="#141414"/>
+      <stop offset="100%" stop-color="#2a0004"/>
+    </linearGradient>
+    <filter id="shadowG">
+      <feDropShadow dx="6" dy="6" stdDeviation="0" flood-color="#000000" flood-opacity="0.9"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bgGradG)"/>
+
+  <!-- Comic Halftone strip -->
+  <polygon points="0,0 200,0 50,500 0,500" fill="#e60012" opacity="0.9"/>
+  <polygon points="210,0 230,0 80,500 60,500" fill="#ffffff" opacity="0.8"/>
+  <polygon points="700,0 800,0 800,500 550,500" fill="#111111" stroke="#e60012" stroke-width="2"/>
+
+  <!-- Game Controller Graphic Persona 5 style -->
+  <g transform="translate(520, 240) rotate(14)" filter="url(#shadowG)">
+    <!-- Controller Body -->
+    <path d="M -130,-50 C -150,-10 -150,70 -110,100 C -80,120 -50,60 -30,40 L 30,40 C 50,60 80,120 110,100 C 150,70 150,-10 130,-50 C 110,-90 -110,-90 -130,-50 Z" fill="#ffffff" stroke="#000000" stroke-width="6"/>
+    <!-- D-Pad -->
+    <path d="M -75,-25 h 15 v -15 h 15 v 15 h 15 v 15 h -15 v 15 h -15 v -15 h -15 z" fill="#e60012"/>
+    <!-- Action Buttons -->
+    <circle cx="50" cy="-25" r="9" fill="#000000"/>
+    <circle cx="75" cy="-2" r="9" fill="#e60012"/>
+    <circle cx="50" cy="20" r="9" fill="#000000"/>
+    <circle cx="25" cy="-2" r="9" fill="#000000"/>
+    <!-- Thumbsticks -->
+    <circle cx="-25" cy="15" r="18" fill="#111111" stroke="#e60012" stroke-width="3"/>
+    <circle cx="25" cy="-55" r="14" fill="#111111" stroke="#f7e018" stroke-width="2"/>
+  </g>
+
+  <!-- P5 Stars -->
+  <polygon points="360,90 366,102 380,102 369,110 373,123 360,115 347,123 351,110 340,102 354,102" fill="#f7e018"/>
+  <polygon points="690,70 695,80 707,80 697,87 700,98 690,91 680,98 683,87 673,80 685,80" fill="#ffffff"/>
+
+  <!-- Slanted Title Banners -->
+  <g transform="translate(80, 200) skewX(-12)">
+    <rect x="0" y="0" width="310" height="42" fill="#e60012" stroke="#ffffff" stroke-width="3"/>
+    <text x="15" y="30" font-family="'Impact', 'Arial Black', sans-serif" font-size="24" fill="#ffffff" letter-spacing="2">GAME DEV & JAM</text>
+  </g>
+
+  <g transform="translate(60, 250) skewX(-12)">
+    <rect x="0" y="0" width="360" height="48" fill="#000000" stroke="#f7e018" stroke-width="3"/>
+    <text x="20" y="34" font-family="'Impact', 'Arial Black', sans-serif" font-size="24" fill="#f7e018" font-weight="900" letter-spacing="2">CREATIVE GAME DESIGN</text>
+  </g>
+
+  <g transform="translate(90, 310) skewX(-12)">
+    <rect x="0" y="0" width="280" height="38" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+    <text x="15" y="26" font-family="'Impact', 'Arial Black', sans-serif" font-size="18" fill="#000000" font-weight="bold" letter-spacing="1">PROJECT EXHIBITION</text>
+  </g>
+
+  <!-- Top badge -->
+  <g transform="translate(80, 50) rotate(-5)">
+    <rect x="0" y="0" width="210" height="34" fill="#f7e018" stroke="#000000" stroke-width="2"/>
+    <text x="15" y="23" font-family="'Impact', 'Arial Black', sans-serif" font-size="14" fill="#000000" font-weight="900" letter-spacing="1">★ GAME SHOWCASE</text>
+  </g>
+</svg>
+

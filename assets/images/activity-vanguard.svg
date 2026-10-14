@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0a"/>
+      <stop offset="60%" stop-color="#1a0508"/>
+      <stop offset="100%" stop-color="#e60012"/>
+    </linearGradient>
+    <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="2" fill="#e60012" opacity="0.25"/>
+    </pattern>
+    <filter id="shadow">
+      <feDropShadow dx="8" dy="8" stdDeviation="0" flood-color="#000000" flood-opacity="0.9"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bgGrad)"/>
+  <rect width="800" height="500" fill="url(#dots)"/>
+
+  <!-- Dynamic Slash Strips -->
+  <polygon points="0,0 350,0 200,500 0,500" fill="#000000" opacity="0.6"/>
+  <polygon points="220,0 260,0 120,500 80,500" fill="#e60012" opacity="0.8"/>
+  <polygon points="650,0 800,0 800,200 700,500" fill="#ffffff" opacity="0.08"/>
+
+  <!-- Speed Lines -->
+  <line x1="100" y1="50" x2="700" y2="450" stroke="#e60012" stroke-width="2" opacity="0.4" stroke-dasharray="15,10"/>
+  <line x1="200" y1="30" x2="780" y2="400" stroke="#ffffff" stroke-width="1.5" opacity="0.3" stroke-dasharray="20,15"/>
+
+  <!-- Vanguard Cards Group -->
+  <g transform="translate(420, 180) rotate(12)" filter="url(#shadow)">
+    <!-- Back card -->
+    <rect x="-80" y="-120" width="160" height="230" rx="8" fill="#111111" stroke="#e60012" stroke-width="4"/>
+    <circle cx="0" cy="-5" r="45" fill="none" stroke="#e60012" stroke-width="3" stroke-dasharray="6,4"/>
+    <polygon points="0,-35 25,25 -25,25" fill="#e60012"/>
+    <text x="0" y="80" font-family="'Impact', 'Arial Black', sans-serif" font-size="16" fill="#ffffff" text-anchor="middle" letter-spacing="2">GRADE 3</text>
+  </g>
+
+  <g transform="translate(320, 220) rotate(-10)" filter="url(#shadow)">
+    <!-- Main Card -->
+    <rect x="-90" y="-135" width="180" height="260" rx="8" fill="#ffffff" stroke="#000000" stroke-width="6"/>
+    <rect x="-82" y="-127" width="164" height="150" fill="#e60012"/>
+    <!-- Card Art Symbol -->
+    <polygon points="0,-100 40,-40 25,-10 70,-10 0,50 -15,0 10,0" fill="#f7e018"/>
+    <!-- Card Bottom Info -->
+    <rect x="-82" y="30" width="164" height="97" fill="#111111"/>
+    <text x="0" y="58" font-family="'Impact', 'Arial Black', sans-serif" font-size="20" fill="#ffffff" text-anchor="middle">CARDFIGHT!!</text>
+    <text x="0" y="82" font-family="'Impact', 'Arial Black', sans-serif" font-size="14" fill="#f7e018" text-anchor="middle">VANGUARD</text>
+    <text x="0" y="110" font-family="'Impact', 'Arial Black', sans-serif" font-size="22" fill="#e60012" text-anchor="middle" font-weight="900">POWER 13000</text>
+  </g>
+
+  <!-- P5 Stars & Comic Accents -->
+  <polygon points="120,80 128,95 145,95 132,105 136,122 120,112 104,122 108,105 95,95 112,95" fill="#f7e018"/>
+  <polygon points="680,100 686,112 700,112 689,120 693,133 680,125 667,133 671,120 660,112 674,112" fill="#ffffff"/>
+  <polygon points="730,380 735,390 747,390 737,397 740,408 730,401 720,408 723,397 713,390 725,390" fill="#f7e018"/>
+
+  <!-- Text Banners P5 Style -->
+  <g transform="translate(40, 360) skewX(-12)">
+    <rect x="0" y="0" width="360" height="45" fill="#000000" stroke="#ffffff" stroke-width="3"/>
+    <text x="20" y="32" font-family="'Impact', 'Arial Black', sans-serif" font-size="26" fill="#ffffff" letter-spacing="2">TOURNAMENT BATTLE</text>
+  </g>
+
+  <g transform="translate(60, 415) skewX(-12)">
+    <rect x="0" y="0" width="400" height="45" fill="#e60012" stroke="#000000" stroke-width="3"/>
+    <text x="20" y="32" font-family="'Impact', 'Arial Black', sans-serif" font-size="22" fill="#ffffff" font-weight="900" letter-spacing="1">CARDFIGHT!! VANGUARD COMPETITION</text>
+  </g>
+
+  <!-- Badge Top Left -->
+  <g transform="translate(50, 40) rotate(-6)">
+    <rect x="0" y="0" width="180" height="35" fill="#f7e018" stroke="#000000" stroke-width="3"/>
+    <text x="15" y="24" font-family="'Impact', 'Arial Black', sans-serif" font-size="16" fill="#000000" font-weight="900" letter-spacing="1">★ OFFICIAL EVENT</text>
+  </g>
+</svg>
+
